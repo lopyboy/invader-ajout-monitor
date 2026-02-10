@@ -1,0 +1,14 @@
+name: Invader Ajout Monitor
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # toutes les 6 heures
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run checker
+        run: python check_invader.py
